@@ -1,9 +1,8 @@
 """Graham's Scan Algorithm for Convex Hull Visualization"""
 
-import pygame
-import random
 import time
-from point import Point
+
+import pygame
 
 
 class GrahamScan:
@@ -69,7 +68,7 @@ class GrahamScan:
             pygame.draw.circle(self.screen, self.point_color, (point.x, point.y), 4)
 
         # Draw the hull
-        for i in range(len(hull)):
+        for i, _ in enumerate(hull):
             pygame.draw.line(
                 self.screen,
                 self.line_color,

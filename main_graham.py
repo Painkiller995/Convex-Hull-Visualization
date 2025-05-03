@@ -2,7 +2,9 @@
 
 import os
 import random
+
 import pygame
+
 from graham_scan import GrahamScan
 from point import Point
 
@@ -45,7 +47,7 @@ graham = GrahamScan(points, win, RED, WHITE, BLUE)
 convex_hull = graham.convex_hull()
 
 # === Draw Final Hull ===
-for i in range(len(convex_hull)):
+for i, _ in enumerate(convex_hull):
     pygame.draw.line(
         win,
         RED,

@@ -3,6 +3,7 @@
 import time
 
 import pygame
+
 from point import Point
 
 
