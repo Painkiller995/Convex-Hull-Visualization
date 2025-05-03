@@ -9,14 +9,23 @@ from point import Point
 class JarvisMarch:
     """Jarvis March Algorithm for Convex Hull Visualization"""
 
-    def __init__(self, points, color, screen, convex_hull, yellow, Red, Grey):
+    def __init__(
+        self,
+        points: list[Point],
+        color,
+        screen,
+        convex_hull,
+        yellow,
+        red,
+        grey,
+    ):
         self.points = points
         self.screen = screen
         self.color = color
         self.convex_hull = convex_hull
         self.yellow = yellow
-        self.Red = Red
-        self.Grey = Grey
+        self.red = red
+        self.grey = grey
 
     def left_most(self):
         """Find the leftmost point (with lowest x; tie-breaker: highest y) and highlight it."""
@@ -70,7 +79,7 @@ class JarvisMarch:
             for i, _ in enumerate(self.points):
                 pygame.draw.line(
                     self.screen,
-                    self.Grey,
+                    self.grey,
                     (self.points[a].x, self.points[a].y),
                     (self.points[i].x, self.points[i].y),
                     1,
@@ -80,11 +89,16 @@ class JarvisMarch:
                 if self.direction(self.points[a], self.points[i], self.points[b]) == 2:
                     b = i
             a = b
+
             if a == current_point:
                 break
+
         for n in hull:
             pygame.draw.circle(
-                self.screen, self.Red, (self.points[n].x, self.points[n].y), 10
+                self.screen,
+                self.red,
+                (self.points[n].x, self.points[n].y),
+                10,
             )
             pygame.display.update()
             self.convex_hull.append((self.points[n].x, self.points[n].y))
