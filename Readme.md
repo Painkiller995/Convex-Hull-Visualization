@@ -26,5 +26,5 @@ The visualization highlights the points and edges as they are added to the conve
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/Jarvis-March-Algorithm-Convex-Hull.git
-   cd Jarvis-March-Algorithm-Convex-Hull
+   git clone https://github.com/Painkiller995/Convex-Hull-Visualization.git
+   cd Convex-Hull-Visualization
