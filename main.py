@@ -7,7 +7,7 @@ import time
 import pygame
 
 from jarvis_march import JarvisMarch
-from points import Points
+from point import Point
 
 # === Configuration ===
 FPS = 30
@@ -47,7 +47,7 @@ points = []
 for _ in range(POINT_NUMBER):
     x = random.randint(OFFSET, WIDTH - OFFSET)
     y = random.randint(OFFSET, HEIGHT - OFFSET)
-    point = Points(x, y)
+    point = Point(x, y)
     points.append(point)
     pygame.draw.circle(win, WHITE, (point.x, point.y), 4)
 pygame.display.update()

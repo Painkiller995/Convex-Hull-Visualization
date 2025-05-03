@@ -3,7 +3,7 @@ This module defines a class to represent a point in 2D space.
 """
 
 
-class Points:
+class Point:
     """Class to represent a point in 2D space."""
 
     def __init__(self, x, y):

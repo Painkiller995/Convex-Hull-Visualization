@@ -3,6 +3,7 @@
 import time
 
 import pygame
+from point import Point
 
 
 class JarvisMarch:
@@ -18,20 +19,25 @@ class JarvisMarch:
         self.Grey = Grey
 
     def left_most(self):
-        """Find the leftmost point in the set of points."""
-        min = 0
-        for i in range(1, len(self.points)):
-            if self.points[i].x < self.points[min].x:
-                min = i
-            elif self.points[i].x == self.points[min].x:
-                if self.points[i].y > self.points[min].y:
-                    min = i
+        """Find the leftmost point (with lowest x; tie-breaker: highest y) and highlight it."""
+
+        def point_sort_key(p: Point) -> tuple[int, int]:
+            return (p.x, -p.y)
+
+        leftmost_point = min(
+            self.points,
+            key=point_sort_key,
+        )
 
         pygame.draw.circle(
-            self.screen, self.color, (self.points[min].x, self.points[min].y), 10
+            self.screen,
+            self.color,
+            (leftmost_point.x, leftmost_point.y),
+            10,
         )
         pygame.display.update()
-        return min
+
+        return self.points.index(leftmost_point)
 
     def direction(self, a, b, c):
         """Determine the orientation of the triplet (a, b, c).
